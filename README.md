@@ -12,8 +12,8 @@ the Coding Interview: 189 Programming Questions and Solutions_.
 
 ## Usage
 
-1. Go to the program's directory (e.g., `cd src/chapter-1-arrays-and-strings/1.1/App.class`).
-2. Compile and run the program (e.g., `javac App.java && java App`).
+1. Go to the program's directory (e.g., `cd src/chapter-1-arrays-and-strings/1.1`).
+2. Compile and run the program (e.g., `javac App1.java && java App1`).
 
 ## License
 
