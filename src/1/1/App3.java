@@ -2,10 +2,11 @@ import static java.util.Arrays.sort;
 
 /**
  * Question:
- *     Is Unique: Implement an algorithm to determine if a string has all unique characters. What if you cannot use
- *     additional data structures?
+ * Is Unique: Implement an algorithm to determine if a string has all unique characters. What if you cannot use
+ * additional data structures?
+ * <p>
  * Solution:
- *     Without using additional data structures. Comparing neighboring characters after sorting the string.
+ * Without using additional data structures. Comparing neighboring characters after sorting the string.
  */
 public final class App3 {
     public static void main(final String[] args) {
@@ -13,7 +14,7 @@ public final class App3 {
             System.out.printf("\"%s\": %s\n", string, isUnique(string) ? "unique" : "not unique");
     }
 
-    private static boolean isUnique(String string) {
+    private static boolean isUnique(final String string) {
         final var array = string.toCharArray();
         sort(array);
         for (var index = 1; index < array.length; ++index)
