@@ -6,7 +6,7 @@ import static java.util.Arrays.sort;
 /**
  * Question:
  * Check Permutation: Given two strings, write a method to decide if one is a permutation of the other.
- *
+ * <p>
  * Solution:
  * Using sort.
  */

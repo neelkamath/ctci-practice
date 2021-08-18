@@ -3,7 +3,7 @@ import java.util.HashMap;
 /**
  * Question:
  * Check Permutation: Given two strings, write a method to decide if one is a permutation of the other.
- *
+ * <p>
  * Solution:
  * Using {@link HashMap}.
  */
