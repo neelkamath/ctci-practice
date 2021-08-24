@@ -7,6 +7,7 @@
  * Result: nothing is returned, but the new linked list looks like a->b->d->e->f
  * <p>
  * Solution:
+ * Replacing the current node with the next node.
  */
 public final class App1 {
     public static void main(final String[] args) {
