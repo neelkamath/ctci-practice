@@ -55,16 +55,16 @@ public final class App1 {
     }
 
     private static LinkedList.Node findIntersection(final LinkedList list1, final LinkedList list2) {
-        final var map = new HashSet<LinkedList.Node>();
+        final var set = new HashSet<LinkedList.Node>();
         for (
                 LinkedList.Node node1 = list1.getHead(), node2 = list2.getHead();
                 node1 != null || node2 != null;
                 node1 = node1 == null ? null : node1.getNext(), node2 = node2 == null ? null : node2.getNext()
         ) {
-            if (map.contains(node1)) return node1;
-            map.add(node1);
-            if (map.contains(node2)) return node2;
-            map.add(node2);
+            if (set.contains(node1)) return node1;
+            set.add(node1);
+            if (set.contains(node2)) return node2;
+            set.add(node2);
         }
         return null;
     }
