@@ -1,7 +1,7 @@
 # Cracking the Coding Interview Practice
 
-My attempts at learning algorithms and data structures by attempting to solve the problems given in the book _Cracking
-the Coding Interview: 189 Programming Questions and Solutions_.
+My attempts at learning algorithms and data structures by attempting to solve the problems given in the sixth edition of
+the book _Cracking the Coding Interview: 189 Programming Questions and Solutions_.
 
 ## Installation
 
