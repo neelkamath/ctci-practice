@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Solution:
  * Modifying the matrix in place.
  */
-public final class App1 {
+public final class App2 {
     public static void main(final String[] args) {
         test(1);
         System.out.println();

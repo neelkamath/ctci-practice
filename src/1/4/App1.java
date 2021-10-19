@@ -19,9 +19,6 @@ public final class App1 {
     }
 
     private static boolean isPalindromePermutation(final String string) {
-        /*
-        Let's consider an example to understand how this function works. If <string> is <"tact coa">, then
-         */
         final var input = string.toLowerCase().replace(" ", "");
         final var map = new HashMap<Character, Boolean>();
         for (var index = 0; index < input.length(); ++index) {

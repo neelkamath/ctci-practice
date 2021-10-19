@@ -13,6 +13,7 @@ enum AnimalType {CAT, DOG}
  * {@link LinkedList} data structure.
  * <p>
  * Solution:
+ * Using {@link LinkedList}s.
  */
 public final class App1 {
     public static void main(final String[] args) {

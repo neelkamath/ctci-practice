@@ -60,7 +60,7 @@ final class ArrayOfStacks<T> {
     private final int capacity;
 
     /**
-     * Creates a number of stacks each having the same capactity.
+     * Creates a number of stacks each having the same capacity.
      *
      * @param numStacks Number of stacks to create.
      * @param capacity  Capacity of each stack.
