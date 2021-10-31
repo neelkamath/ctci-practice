@@ -13,10 +13,12 @@ the book _Cracking the Coding Interview: 189 Programming Questions and Solutions
 
 ## Usage
 
-1. Go to the program's directory (e.g., `cd src/1/1.1`).
-2. Compile and run the program:
-    - Example for a Java file: `javac App1.java && java App1`
-    - Example for a Kotlin file: `kotlinc -script App1.kts`
+1. Go to the program's directory (e.g., `cd src/chapter1/problem1`).
+2. Run (e.g., `kotlinc -script solution1.kts`).
+
+## Contributing
+
+Each program file is self-contained (i.e., doesn't reference other files). Top-level files in chapters such as [`src/chapter2/linkedList.kts`](src/chapter2/linkedList.kts) are meant for learning the ins and outs of specific data structures, and aren't meant to be run or used anywhere.
 
 ## License
 
