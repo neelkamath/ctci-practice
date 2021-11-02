@@ -15,7 +15,8 @@ import kotlin.math.abs
  * Solution:
  * Using no additional data structures.
  */
-fun main(): Unit = listOf("pale" to "ple", "pales" to "pale", "pale" to "bale", "pale" to "bae")
+
+listOf("pale" to "ple", "pales" to "pale", "pale" to "bale", "pale" to "bae")
     .forEach { (string1, string2) -> println("$string1, $string2: ${isAtMostOneEditAway(string1, string2)}") }
 
 fun isAtMostOneEditAway(string1: String, string2: String): Boolean = when (abs(string1.length - string2.length)) {
