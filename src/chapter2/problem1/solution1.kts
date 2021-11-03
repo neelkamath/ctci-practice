@@ -22,12 +22,13 @@ data class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
 
     override fun toString(): String {
         val builder = StringBuilder()
-        builder.append("[ ")
         var node = this as LinkedListNode<T>?
         while (node != null) {
-            builder.append("${node!!.data} ")
+            if (!builder.isEmpty()) builder.append(" -> ")
+            builder.append(node!!.data)
             node = node!!.next
         }
+        builder.insert(0, "[")
         builder.append("]")
         return builder.toString()
     }
