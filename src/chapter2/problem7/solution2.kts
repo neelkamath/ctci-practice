@@ -5,22 +5,34 @@ that the intersection is defined based on reference, not value. That is, if the 
 exact same node (by reference) as the jth node of the second linked list, then they are intersecting.
 
 Answer:
-Using an additional data structure.
+Using no additional data structures.
  */
 
 class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
     /** Returns either the intersecting node's value or `null` if there's no intersection. */
     fun findIntersection(node: LinkedListNode<T>): T? {
-        val set = mutableSetOf<LinkedListNode<T>>()
-        var node1: LinkedListNode<T>? = this
-        var node2: LinkedListNode<T>? = node
-        while (node1 != null || node2 != null) {
-            if (node1 in set) return node1!!.data else if (node1 != null) set.add(node1)
-            if (node2 in set) return node2!!.data else if (node2 != null) set.add(node2)
-            node1 = node1?.next
-            node2 = node2?.next
+        val thisLength = readLength()
+        val otherLength = node.readLength()
+        var thisNode: LinkedListNode<T>? = this
+        var otherNode: LinkedListNode<T>? = node
+        if (thisLength < otherLength) repeat(otherLength.minus(thisLength).toInt()) { otherNode = otherNode!!.next }
+        else repeat(thisLength.minus(otherLength).toInt()) { thisNode = thisNode!!.next }
+        while (thisNode != null) {
+            if (thisNode == otherNode) return thisNode!!.data
+            thisNode = thisNode!!.next
+            otherNode = otherNode!!.next
         }
         return null
+    }
+
+    private fun readLength(): UInt {
+        var length = 1U
+        var node = this
+        while (node.next != null) {
+            node = node.next!!
+            ++length
+        }
+        return length
     }
 
     override fun toString(): String {
@@ -28,8 +40,8 @@ class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
         var node: LinkedListNode<T>? = this
         while (node != null) {
             if (!builder.isEmpty()) builder.append("->")
-            builder.append(node.data)
-            node = node.next
+            builder.append(node!!.data)
+            node = node!!.next
         }
         builder.insert(0, "[")
         builder.append("]")
