@@ -8,7 +8,7 @@ Answer:
 Without using a temporary buffer.
  */
 
-data class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
+class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
     fun removeDuplicates() {
         var node: LinkedListNode<T>? = this
         while (node?.next != null) {

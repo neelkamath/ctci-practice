@@ -16,7 +16,7 @@ Answer:
 Solving for reverse ordered numbers.
  */
 
-data class LinkedListNode(var data: UInt, var next: LinkedListNode? = null) {
+class LinkedListNode(var data: UInt, var next: LinkedListNode? = null) {
     /** Returns a [LinkedListNode] that's the sum of this and the [rhs]. */
     operator fun plus(rhs: LinkedListNode): LinkedListNode {
         var head: LinkedListNode? = null

@@ -12,7 +12,7 @@ Answer:
 Creating two linked lists.
  */
 
-data class LinkedListNode(var data: Int, var next: LinkedListNode? = null) {
+class LinkedListNode(var data: Int, var next: LinkedListNode? = null) {
     fun partition(value: Int): LinkedListNode {
         var lesserHead: LinkedListNode? = null
         var lesserTail: LinkedListNode? = null

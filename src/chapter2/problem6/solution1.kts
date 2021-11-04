@@ -6,7 +6,7 @@ Answer:
 Using the runner technique.
  */
 
-data class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
+class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
     fun isPalindrome(): Boolean {
         var node: LinkedListNode<T>? = null
         var current: LinkedListNode<T>? = this

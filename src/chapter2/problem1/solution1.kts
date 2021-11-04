@@ -8,7 +8,7 @@ Answer:
 Using a temporary buffer.
  */
 
-data class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
+class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
     fun removeDuplicates() {
         val set = mutableSetOf(data)
         var node = this

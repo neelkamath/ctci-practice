@@ -6,7 +6,7 @@ Answer:
 Using the runner technique.
  */
 
-data class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
+class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
     /**
      * Returns the element at length - 1 - k. For example, the linked list 1 -> 2 -> 3 will return 3 and 2 for k=0 and
      * k=1 respectively.

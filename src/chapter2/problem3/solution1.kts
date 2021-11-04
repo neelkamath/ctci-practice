@@ -10,7 +10,7 @@ Answer:
 Replacing the current node with the next one.
  */
 
-data class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
+class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
     override fun toString(): String {
         val builder = StringBuilder()
         var node = this as LinkedListNode<T>?
