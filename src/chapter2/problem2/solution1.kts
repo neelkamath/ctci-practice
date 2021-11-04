@@ -1,9 +1,9 @@
-/**
- * Question:
- * Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list.
- *
- * Answer:
- * Using the runner technique.
+/*
+Question:
+Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list.
+
+Answer:
+Using the runner technique.
  */
 
 data class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {

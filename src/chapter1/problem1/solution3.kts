@@ -1,10 +1,10 @@
-/**
- * Question:
- * Is Unique: Implement an algorithm to determine if a string has all unique characters. What if you cannot use
- * additional data structures?
- *
- * Solution:
- * Not using an additional data structure.
+/*
+Question:
+Is Unique: Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional
+data structures?
+
+Solution:
+Not using an additional data structure.
  */
 
 setOf("hello", "bye").forEach { println("$it: ${it.isUnique()}") }
