@@ -9,14 +9,14 @@ Using an additional data structure.
  */
 
 class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
-    /** Returns either the intersecting node's value or `null` if there's no intersection. */
-    fun findIntersection(node: LinkedListNode<T>): T? {
+    /** Returns either the intersecting node or `null` if there's no intersection. */
+    fun findIntersection(node: LinkedListNode<T>): LinkedListNode<T>? {
         val set = mutableSetOf<LinkedListNode<T>>()
         var node1: LinkedListNode<T>? = this
         var node2: LinkedListNode<T>? = node
         while (node1 != null || node2 != null) {
-            if (node1 in set) return node1!!.data else if (node1 != null) set.add(node1)
-            if (node2 in set) return node2!!.data else if (node2 != null) set.add(node2)
+            if (node1 in set) return node1 else if (node1 != null) set.add(node1)
+            if (node2 in set) return node2 else if (node2 != null) set.add(node2)
             node1 = node1?.next
             node2 = node2?.next
         }
@@ -38,7 +38,7 @@ class LinkedListNode<T>(var data: T, var next: LinkedListNode<T>? = null) {
 }
 
 fun <T> printIntersection(list1: LinkedListNode<T>, list2: LinkedListNode<T>): Unit =
-    println("List 1: $list1\nList 2: $list2\nIntersection: ${list1.findIntersection(list2)}")
+    println("List 1: $list1\nList 2: $list2\nIntersection: ${list1.findIntersection(list2)?.data}")
 
 run {
     val list1 = LinkedListNode(
