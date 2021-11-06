@@ -3,7 +3,7 @@ Question:
 Three in One: Describe how you could use a single array to implement three stacks.
 
 Answer:
-Using flexible divisions.
+Using fixed divisions.
  */
 
 import java.util.EmptyStackException
