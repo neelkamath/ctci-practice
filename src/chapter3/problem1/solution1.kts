@@ -36,7 +36,7 @@ class ArrayOfStacks<T>(
     private fun computeTopIndex(index: UInt): UInt? {
         validateIndex(index)
         if (sizes[index.toInt()] == 0U) return null
-        return computeBottomIndex(index) + sizes[index.toInt()].let { if (it == 0U) it else it - 1U }
+        return computeBottomIndex(index) + sizes[index.toInt()] - 1U
     }
 
     /**
@@ -96,8 +96,7 @@ class ArrayOfStacks<T>(
     }
 
     /**
-     * Returns the array index the stack the specified [index] has its first element at (either `null` or the bottommost
-     * element).
+     * Returns the array index the stack the specified [index] has its first element at.
      *
      * Throws an [IndexOutOfBoundsException] if there's no such stack.
      */

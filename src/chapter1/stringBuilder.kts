@@ -64,9 +64,12 @@ class MyStringBuilder(initialCapacity: UInt = 16U) {
         return this
     }
 
-    /** Resizes the [array] with double the [capacity] if inserting the [string] would cause it to overflow. */
+    /**
+     * Resizes the [array] with double the [capacity] if inserting the [string] would cause it to overflow. Repeats as
+     * many times as is required.
+     */
     private fun prepareForEntry(string: String) {
-        if (length + string.length.toUInt() > capacity) array = array.copyOf(capacity.toInt().times(2))
+        while (length + string.length.toUInt() > capacity) array = array.copyOf(capacity.toInt().times(2))
     }
 
     /** Returns a [String] that's the concatenation of each inputted [String]. */

@@ -26,9 +26,7 @@ class MyHashMap<K, V>(initialCapacity: UInt = 16U, val loadFactor: Float = 0.75F
 
     fun containsKey(key: K): Boolean = this[key] != null
 
-    /** Throws an [IllegalArgumentException] if the [key] exists in this map. */
     operator fun set(key: K, value: V) {
-        if (containsKey(key)) throw IllegalArgumentException()
         prepareForEntry()
         buckets[computeIndex(key).toInt()].add(Entry(key, value))
     }
@@ -58,9 +56,8 @@ class MyHashMap<K, V>(initialCapacity: UInt = 16U, val loadFactor: Float = 0.75F
         size = 0U
     }
 
-    fun containsValue(value: V): Boolean {
-        for (bucket in buckets) return bucket.any { it.value == value }
-        return false
+    fun containsValue(value: V): Boolean = buckets.any { bucket ->
+        bucket.any { it.value == value }
     }
 
     /**
@@ -88,16 +85,13 @@ class MyHashMap<K, V>(initialCapacity: UInt = 16U, val loadFactor: Float = 0.75F
         } else existingValue
     }
 
-    override fun toString(): String {
-        val builder = StringBuilder()
+    override fun toString(): String = with(StringBuilder("{")) {
         for (bucket in buckets)
             for ((key, value) in bucket) {
-                if (builder.isNotEmpty()) builder.append(", ")
-                builder.append("$key=$value")
+                if (length > 1) append(", ")
+                append("$key=$value")
             }
-        builder.insert(0, "{")
-        builder.append("}")
-        return builder.toString()
+        append("}").toString()
     }
 }
 
@@ -121,11 +115,8 @@ println("toString(): ${namesToAges.toString()}")
 namesToAges["Archana Kamath"] = 47U
 namesToAges["Rahul Kamath"] = 18U
 println("toString(): ${namesToAges.toString()}")
-try {
-    namesToAges["Neel Kamath"] = 22U
-} catch (exception: IllegalArgumentException) {
-    println(exception)
-}
+namesToAges["Neel Kamath"] = 22U
+println("toString(): ${namesToAges.toString()}")
 
 println("***get()***")
 println("""get("Neel Kamath"): ${namesToAges["Neel Kamath"]}""")
@@ -138,6 +129,8 @@ println("""containsKey("Arjun"): ${namesToAges.containsKey("Arjun")}""")
 println("***containsValue()***")
 println("containsValue(21): ${namesToAges.containsValue(21U)}")
 println("containsValue(99): ${namesToAges.containsValue(99U)}")
+println("containsValue(47): ${namesToAges.containsValue(47U)}")
+println("containsValue(18): ${namesToAges.containsValue(18U)}")
 
 println("***remove()***")
 namesToAges.remove("Neel Kamath")

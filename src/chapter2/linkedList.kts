@@ -3,12 +3,12 @@ class MyLinkedList<T> {
     private var tailNode: Node<T>? = null
     val head: T? get() = headNode?.data
     val tail: T? get() = tailNode?.data
-    var length: UInt = 0U
+    var size: UInt = 0U
         private set
 
     /** Throws an [IndexOutOfBoundsException] if there's no such element. */
     fun read(index: UInt): T {
-        if (index >= length) throw IndexOutOfBoundsException()
+        if (index >= size) throw IndexOutOfBoundsException()
         var node = headNode!!
         repeat(index.toInt()) { node = node.next!! }
         return node.data
@@ -16,38 +16,38 @@ class MyLinkedList<T> {
 
     /** Throws an [IndexOutOfBoundsException] if there's no such element. */
     fun delete(index: UInt) {
-        if (index >= length) throw IndexOutOfBoundsException()
+        if (index >= size) throw IndexOutOfBoundsException()
         when (index) {
             0U -> deleteHead()
-            length - 1U -> deleteTail()
+            size - 1U -> deleteTail()
             else -> {
                 var node = headNode!!
                 repeat(index.minus(1U).toInt()) { node = node.next!! }
                 node.next = node.next!!.next
-                --length
+                --size
             }
         }
     }
 
     /** Throws an [IllegalArgumentException] if there's no such element. */
     fun deleteHead() {
-        if (length == 0U) throw IllegalArgumentException()
-        if (tailNode == headNode) tailNode = headNode!!.next
+        if (size == 0U) throw IllegalArgumentException()
         headNode = headNode!!.next
-        --length
+        if (headNode == null) tailNode = null
+        --size
     }
 
     /** Throws an [IllegalArgumentException] if there's no such element. */
     fun deleteTail() {
-        when (length) {
+        when (size) {
             0U -> throw IllegalArgumentException()
             1U -> deleteHead()
             else -> {
                 var node = headNode!!
-                repeat(length.minus(2U).toInt()) { node = node.next!! }
+                repeat(size.minus(2U).toInt()) { node = node.next!! }
                 node.next = node.next!!.next
                 tailNode = node
-                --length
+                --size
             }
         }
     }
@@ -55,35 +55,34 @@ class MyLinkedList<T> {
     /**
      * For example, if the list is 1->2->3->4, and you insert 10 at [index] 2, then the list will become 1->2->10->3->4.
      *
-     * Throws an [IllegalArgumentException] if the [index] is greater than the [length].
+     * Throws an [IllegalArgumentException] if the [index] is greater than the [size].
      */
     fun insert(index: UInt, data: T) {
-        if (index > length) throw IllegalArgumentException()
+        if (index > size) throw IllegalArgumentException()
         when (index) {
             0U -> prepend(data)
-            length -> append(data)
+            size -> append(data)
             else -> {
                 var node = headNode!!
                 repeat(index.minus(1U).toInt()) { node = node.next!! }
                 node.next = Node(data, node.next)
-                ++length
+                ++size
             }
         }
     }
 
     fun prepend(data: T) {
         headNode = Node(data, headNode)
-        if (length == 0U) tailNode = headNode
-        else if (length == 1U) tailNode = headNode!!.next
-        ++length
+        if (size == 0U) tailNode = headNode
+        ++size
     }
 
     fun append(data: T) {
-        if (length == 0U) prepend(data)
+        if (size == 0U) prepend(data)
         else {
             tailNode!!.next = Node(data)
             tailNode = tailNode!!.next
-            ++length
+            ++size
         }
     }
 
@@ -91,7 +90,7 @@ class MyLinkedList<T> {
         val builder = StringBuilder()
         builder.append("[")
         var node = headNode
-        repeat(length.toInt()) {
+        repeat(size.toInt()) {
             if (it > 0) builder.append(" -> ")
             builder.append("${node!!.data}")
             node = node!!.next
@@ -103,12 +102,7 @@ class MyLinkedList<T> {
     private data class Node<T>(val data: T, var next: Node<T>? = null)
 }
 
-fun <T> MyLinkedList<T>.printMetadata() {
-    println("head: $head")
-    println("tail: $tail")
-    println("length: $length")
-    println(this)
-}
+fun <T> MyLinkedList<T>.printMetadata(): Unit = println("head: $head\ntail: $tail\nsize: $size\n$this")
 
 with(MyLinkedList<Int>()) {
     printMetadata()
@@ -161,9 +155,9 @@ with(MyLinkedList<Int>()) {
     println(this)
     insert(2U, 200)
     println(this)
-    insert(length - 1U, 300)
+    insert(size - 1U, 300)
     println(this)
-    insert(length, 400)
+    insert(size, 400)
     println(this)
     try {
         read(100U)
@@ -180,6 +174,6 @@ with(MyLinkedList<Int>()) {
     println(this)
     delete(0U)
     println(this)
-    delete(length - 1U)
+    delete(size - 1U)
     println(this)
 }

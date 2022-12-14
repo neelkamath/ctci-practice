@@ -1,7 +1,3 @@
-package com.neelkamath.ctci.chapter1.problem5
-
-import kotlin.math.abs
-
 /*
 Question:
 One Away: There are three types of edits that can be performed on strings: insert a character, remove a character, or
@@ -15,6 +11,8 @@ pale, bae -> false
 Solution:
 Using no additional data structures.
  */
+
+import kotlin.math.abs
 
 listOf("pale" to "ple", "pales" to "pale", "pale" to "bale", "pale" to "bae")
     .forEach { (string1, string2) -> println("$string1, $string2: ${isAtMostOneEditAway(string1, string2)}") }
